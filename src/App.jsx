@@ -12,11 +12,14 @@ import Project from "./pages/project/Project";
 
 //Components
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+Sidebar;
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Sidebar />
         <div className="container">
           <Navbar />
           <Routes>
