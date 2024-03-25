@@ -8,11 +8,11 @@ import "./Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signup, isPending, error } = useLogin();
+  const { login, isPending, error } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup(email, password);
+    login(email, password);
   };
   return (
     <form className="auth-form" onSubmit={handleSubmit}>

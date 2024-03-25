@@ -5,8 +5,10 @@ import { useLogout } from "../hooks/useLogout";
 // styles
 import Temple from "../assets/temple.svg";
 import "./Navbar.css";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function Navbar() {
+  const { user } = useAuthContext();
   const { logout, isPending } = useLogout();
   return (
     <header className="navbar">
@@ -15,24 +17,22 @@ function Navbar() {
           <img src={Temple} alt="Dojo" />
           <span>The Dojo</span>
         </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/signup">Signup</Link>
-        </li>
-        <li>
-          {!isPending && (
-            <button className="btn" onClick={logout}>
-              Logout
-            </button>
-          )}
-          {isPending && (
-            <button className="btn" disabled>
-              Logout
-            </button>
-          )}
-        </li>
+        <li>{!user && <Link to="/login">Login</Link>}</li>
+        <li>{!user && <Link to="/signup">Signup</Link>}</li>
+        {user && (
+          <li>
+            {!isPending && (
+              <button className="btn" onClick={logout}>
+                Logout
+              </button>
+            )}
+            {isPending && (
+              <button className="btn" disabled>
+                Logout
+              </button>
+            )}
+          </li>
+        )}
       </ul>
     </header>
   );
