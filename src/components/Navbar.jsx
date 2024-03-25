@@ -15,7 +15,7 @@ function Navbar() {
       <ul>
         <li className="logo">
           <img src={Temple} alt="Dojo" />
-          <span>The Dojo</span>
+          <span>Team Enkelt</span>
         </li>
         <li>{!user && <Link to="/login">Login</Link>}</li>
         <li>{!user && <Link to="/signup">Signup</Link>}</li>

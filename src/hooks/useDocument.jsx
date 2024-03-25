@@ -16,12 +16,12 @@ export const useDocument = (collection, id) => {
           setDocument({ ...snapshot.data(), id: snapshot.id });
           setError(null);
         } else {
-          setError("No such document exists");
+          setError("Hittar inte dokumentet");
         }
       },
       (err) => {
         console.log(err.message);
-        setError("failed to get document");
+        setError("Misslyckades hämta dokumentet");
       }
     );
 
